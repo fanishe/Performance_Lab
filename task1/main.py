@@ -10,7 +10,7 @@ def generate_file(file, start = 1, end = 100):
            f.write(f'{i}\n')
 
 def create_list_form_txt(file = 'input.txt'):
-    """ Необюходимо ввыести название файла, по умолчанию input.txt"""
+    """ Необходимо выести название файла, по умолчанию input.txt"""
     try:
         with open(file,'r', encoding = 'utf-8') as f:
             some_list = []
@@ -24,11 +24,14 @@ def create_list_form_txt(file = 'input.txt'):
 def percentile(list, percent = 90):
     return sorted(list)[math.floor((len(list) * 90) / 100) ]
 
-
-
-if __name__ == '__main__':
+def main():
     name_file = input('Enter filename\n')
     data_list = create_list_form_txt(name_file)
     if not data_list:
         data_list = create_list_form_txt(name_file)
     print(percentile(data_list))
+
+
+
+if __name__ == '__main__':
+    main()
