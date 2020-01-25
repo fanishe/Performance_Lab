@@ -22,14 +22,32 @@ def create_list_form_txt(file = 'input.txt'):
         generate_file(file)
     
 def percentile(list, percent = 90):
-    return sorted(list)[math.floor((len(list) * 90) / 100) ]
+
+    result = (len(list) * percent) / 100
+
+    return sorted(list)[ math.floor(result) ]
+
+
+def mediana(list):
+    length = len(list)
+    s_list = sorted(list)
+    middle = length // 2
+
+    if length % 2 == 0:
+        return 0.5 * ( s_list[middle] + s_list[middle - 1] )
+    else:
+        return s_list[middle]
 
 def main():
-    name_file = input('Enter filename\n')
+    # name_file = input('Enter filename\n')
+    name_file = 'input.txt'
     data_list = create_list_form_txt(name_file)
-    if not data_list:
-        data_list = create_list_form_txt(name_file)
+    # if not data_list:
+    #     data_list = create_list_form_txt(name_file)
     print(percentile(data_list))
+    print(mediana(data_list))
+    print(min(data_list))
+    print(max(data_list))
 
 
 
