@@ -42,12 +42,15 @@ def main():
     # name_file = input('Enter filename\n')
     name_file = 'input.txt'
     data_list = create_list_form_txt(name_file)
+    
     if not data_list:
         data_list = create_list_form_txt(name_file)
+
     print(percentile(data_list))
     print(mediana(data_list))
-    print(min(data_list))
     print(max(data_list))
+    print(min(data_list))
+    print(sum(data_list) / len(data_list))
 
 
 
