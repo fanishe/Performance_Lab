@@ -46,26 +46,38 @@ def generate_file(file, start = 1, end = 17):
 # generate_file('cashes/Cash5.txt')
 
 # TODO
-# Сделать списки из файлов
+#[v] Сделать списки из файлов
 # Найти в каждом из них макс значение
+    # пройтись по каждому словарю одновременно
+    # сохранить все числа в переменную
+    # след ряд
+    # если след ряд больше пред
+        # сохранить
+    # если нет
+        # продолжить итерацию
+    # вернуть переменную
+
 # Вычленить интервал с макс значениями
 
 def make_lists(path = 'C:\\Users\\PC\\Documents\\GitHub\\Performance_Lab\\task3\\cashes'):
     files = os.listdir(path)
-    # ['Cash1.txt', 'Cash2.txt', 'Cash3.txt', 'Cash4.txt', 'Cash5.txt']
     # print(files)
+    # ['Cash1.txt', 'Cash2.txt', 'Cash3.txt', 'Cash4.txt', 'Cash5.txt']
+    cash_dict = {}
 
     for file in files:
-        with open(f'{path}\\{file}','r', encoding = 'utf-8') as f:
-
-            name_list = f'{file[0:5].lower()}'
-            print(name_list)
-
+        with open(f'{path}/{file}','r', encoding = 'utf-8') as f:
             some_list = []
             for line in f:
                 some_list.append(float(line))
+            cash_dict[f'{file[:5].lower()}'] = some_list
+    return cash_dict
 
-    print(some_list)
+def search_max(dicts):
+    for dict in dicts:
+        max_val = max(dicts[dict])
+        interval = dicts[dict].index(max_val)
+        print(f'max = {max_val} index =  {interval}')
     
 
 
@@ -73,4 +85,6 @@ def make_lists(path = 'C:\\Users\\PC\\Documents\\GitHub\\Performance_Lab\\task3\
 
 if __name__ == '__main__':
     # main()
-    make_lists()
+    dir = os.path.abspath(os.curdir)
+    cash_dict = make_lists(f'{dir}/cashes')
+    search_max(cash_dict)
