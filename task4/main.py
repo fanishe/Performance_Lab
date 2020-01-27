@@ -40,46 +40,38 @@ def make_list(file):
     return persons
 
 persons = make_list('input.txt')
-for p in persons:
-    print(p, ' - ', persons[p])
+#for p in persons:
+#    print(p, ' - ', persons[p])
 
-counter = 0
-visitors = {}
-for h in range(work_day_start, work_day_end):
-    for m in range(0, 55, 5):
-        if m == 0:
-            m = '00'
-        elif m == 5:
-            m = '05'
+def search_max(persons):
+    counter = 0
+    visitors = {}
+    for h in range(work_day_start, work_day_end):
+        for m in range(0, 55, 5):
+            if m == 0:
+                m = '00'
+            elif m == 5:
+                m = '05'
 
-        time = f'{h}:{m}'
-        for p in persons:
-            #print(p)
-            if time == persons[p][0]:
-                counter += 1
-                visitors[time] = counter 
-                #visitors.append(time)
-                #visitors.append(counter)
-                print(f'{time} +1')
-        for p in persons:
-            if time == persons[p][1]:
-                counter -= 1
-                print(f'{time} -1')
+            time = f'{h}:{m}'
+            for p in persons:
+                #print(p)
+                if time == persons[p][0]:
+                    counter += 1
+                    visitors[time] = counter 
+                    #visitors.append(time)
+                    #visitors.append(counter)
+                    print(f'{time} +1')
+            for p in persons:
+                if time == persons[p][1]:
+                    counter -= 1
+                    print(f'{time} -1')
 
-from collections import Counter
+    maximum = max(visitors.values())
+    new_list = []
+    for vis in visitors:
+        if visitors[vis] == maximum:
+            new_list.append(vis)
+    return f'{new_list[0]} {new_list[-1]}'
 
-print('visitors', visitors)
-#for time in visitors:
-vals = list(visitors.values())
-print('vals', vals)
-keys = list(visitors.keys())
-print('keys', keys)
-max_val = keys[vals.index(max(vals))]
-maximum = max(visitors.values())
-new_list = []
-for vis in visitors:
-    if visitors[vis] == maximum:
-        new_list.append(vis)
-print(new_list)
-print(new_list[0], ' ',  new_list[-1])
 
