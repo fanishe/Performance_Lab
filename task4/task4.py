@@ -1,3 +1,6 @@
+import sys
+
+var = sys.argv[1:]
 work_day_start = 8
 work_day_end = 20
 
@@ -67,7 +70,7 @@ def search_max(persons):
 
 
 def main():
-    persons = make_list('input.txt')
+    persons = make_list(var[0])
     result = search_max(persons)
     print(result)
     # несколько диапазонов найти не получилось

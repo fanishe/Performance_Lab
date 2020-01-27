@@ -1,5 +1,9 @@
 import random
 import os
+import sys
+
+var = sys.argv[1:]
+
 
 def generate_file(file, start = 1, end = 17):
     """генерирует файл с числами"""
@@ -52,5 +56,4 @@ def main(way_to_dir):
 
 
 if __name__ == '__main__':
-    dir = os.path.abspath(os.curdir)
-    main(f'{dir}/cashes' )
+    main(var[0])

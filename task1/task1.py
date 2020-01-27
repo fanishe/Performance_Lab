@@ -1,5 +1,8 @@
 import random
 import math
+import sys
+
+var = sys.argv[1:]
 
 def generate_file(file, start = 1, end = 100):
     """генерирует файл с числами"""
@@ -40,7 +43,7 @@ def mediana(list):
 
 def main():
     # name_file = input('Enter filename\n')
-    name_file = 'input.txt'
+    name_file = var[0]
     data_list = create_list_form_txt(name_file)
 
     if not data_list:
