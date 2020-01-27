@@ -44,7 +44,7 @@ def search_max(dicts):
     max_val = max(sum1)
     interval = sum1.index(max_val)
     # print(f'max = {max_val} index =  {interval}')
-    return interval
+    return f'{interval}\n'
 
 
 

@@ -64,7 +64,7 @@ def search_max(persons):
         if visitors[vis] == maximum:
             new_list.append(vis)
         # Создаю список с "горячим временем"
-    return f'{new_list[0]} {new_list[-1]}'
+    return f'{new_list[0]} {new_list[-1]}\n'
     # возвращаю начало и конец списка
 
 

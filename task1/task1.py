@@ -28,7 +28,7 @@ def percentile(list, percent = 90):
 
     result = (len(list) * percent) / 100
 
-    return sorted(list)[ math.floor(result) ]
+    return f'{sorted(list)[ math.floor(result) ]}\n'
 
 
 def mediana(list):
@@ -37,9 +37,9 @@ def mediana(list):
     middle = length // 2
 
     if length % 2 == 0:
-        return 0.5 * ( s_list[middle] + s_list[middle - 1] )
+        return f'{0.5 * ( s_list[middle] + s_list[middle - 1] )}\n'
     else:
-        return s_list[middle]
+        return f'{s_list[middle]}\n'
 
 def main():
     # name_file = input('Enter filename\n')
@@ -51,9 +51,9 @@ def main():
 
     print(float(percentile(data_list)))
     print(float(mediana(data_list)))
-    print(float(max(data_list)))
-    print(float(min(data_list)))
-    print(sum(data_list) / len(data_list))
+    print(float(max(data_list)),'\n')
+    print(float(min(data_list)),'\n')
+    print(sum(data_list) / len(data_list),'\n')
 
 
 
